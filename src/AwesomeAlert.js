@@ -23,13 +23,13 @@ const { OS } = Platform;
 export default class AwesomeAlert extends Component {
   constructor(props) {
     super(props);
-    this.backHandlerSubscription = null; // ✅ Değişkeni baştan tanımla
+    this.backHandlerSubscription = null;
     const { show } = this.props;
     this.springValue = new Animated.Value(props.animatedValue);
 
-    this.state = {
-      showSelf: false,
-    };
+   this.state = {
+  showSelf: props.show,
+};
 
     if (show) this._springShow(true);
   }
@@ -232,7 +232,7 @@ export default class AwesomeAlert extends Component {
   }
 
   componentWillUnmount() {
-    this.backHandlerSubscription?.remove(); // ✅ Eğer varsa kaldır
+    this.backHandlerSubscription?.remove();
   }
 
 }
